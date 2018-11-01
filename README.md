@@ -1,5 +1,5 @@
-# hcOmniApi
-API Services for HC Omni 
+# omniapi
+API Services for Omni 
 
 <b>NOTE: The following is a work in progress and should not be considered production ready/usable</b>
 
@@ -18,7 +18,7 @@ Install python pip and the python packages from pip
 ## Config files needed
 To connect to and use the omnicored client define the following file with the following structure.
 ```
-cat ~/.hc/hc.conf
+cat ~/.hcwallet/omni.conf
 rpcuser=
 rpcpassword=
 rpcport=
@@ -27,7 +27,7 @@ rpcconnect=<ip address of host, only needed if not localhost>
 
 To connect to the database define the following file with the following structure:
 ```
-cat ~/.omni/sql.conf
+cat ~/.hcwallet/omni.conf
 sqluser=
 sqlport=
 sqlconnect=
