@@ -32,18 +32,12 @@ def get_balancedata_db_ROWS(addr):
                      on f1.propertyid=sp.propertyid and (sp.protocol='Omni' or sp.protocol='Bitcoin')
                      order by f1.propertyid""",(addr,addr))
 def get_balancedata_rpc_ROWS(addr):
-  print "---------------------"
-  print getallbalancesforaddress(addr)
-  print "------------------------"
   return getallbalancesforaddress(addr)
 
 def get_balancedata1(address):
-    print ">>> enter into get_balancedata",address
     addr = re.sub(r'\W+', '', address) #check alphanumeric
     ROWS = get_balancedata_db_ROWS(address)
     #ROWS = get_balancedata_rpc_ROWS(address)
-    print ">>>>>>>>>>>>>>>>>>>>>>"    
-    print ROWS
     balance_data = { 'balance': [] }
     ret = bc_getbalance(addr)
     out = ret['bal']
@@ -122,12 +116,9 @@ def get_balancedata1(address):
     return balance_data
 
 def get_balancedata(address):
-    print ">>> enter into get_balancedata",address
     addr = re.sub(r'\W+', '', address) #check alphanumeric
     #ROWS = get_balancedata_db_ROWS(address)
-    ROWS = get_balancedata_rpc_ROWS(address)
-    print ">>>>>>>>>>>>>>>>>>>>>>"
-    print ROWS
+    ROWS = get_balancedata_rpc_ROWS(address)['result']
     balance_data = { 'balance': [] }
     ret = bc_getbalance(addr)
     out = ret['bal']
